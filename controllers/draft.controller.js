@@ -5,18 +5,6 @@ const Helper = require("../helper"),
 
 class DraftController {
 
-    constructor(connection)
-    {
-        this.draftService = DraftService;
-        this.ticketsDraft = {};
-        this.individualTicketDrafts = {};
-        this.newTicketDraft(this.socket);
-        this.sendNewTicketDraftData(this.socket);
-        this.sendNewTicketEvent(this.socket);
-        this.setindividualdraftData(this.socket);
-        this.createDraftIndividual(this.socket);
-    }
-
     constructor(io)
     {
         this.io = io;
@@ -32,6 +20,14 @@ class DraftController {
 
             });
             this.socket = socket;
+            this.draftService = DraftService;
+            this.ticketsDraft = {};
+            this.individualTicketDrafts = {};
+            this.newTicketDraft(this.socket);
+            this.sendNewTicketDraftData(this.socket);
+            this.sendNewTicketEvent(this.socket);
+            this.setindividualdraftData(this.socket);
+            this.createDraftIndividual(this.socket);
 
         });
 
